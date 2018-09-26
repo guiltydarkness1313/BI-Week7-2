@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="9/26/2018 9:46:57 AM"
@@ -11,9 +11,912 @@
   DTS:LocaleID="10250"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionGUID="{6BAA05ED-3B86-4BCC-BA15-7C4F9B9FE9EF}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{1C8D88F3-B65C-4915-991E-DB688B792D6F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-MMSQBFD\SQLEXPRESS.dw_example2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F409C2DE-1C16-4945-AF89-2160E2A4624E}"
+      DTS:ObjectName="DESKTOP-MMSQBFD\SQLEXPRESS.dw_example2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-MMSQBFD\SQLEXPRESS;Initial Catalog=dw_example2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{79A6540E-1D3D-4ACD-9669-C10AEB9B58A0}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\paulf\Desktop\Libro_01.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ETL - Ejemplo Data FLow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F1CDA6D8-E9C3-4758-BF26-7E15FCF129A2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL - Ejemplo Data FLow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Mes]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Mes"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Mes]" />
+                    <inputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Tienda]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Tienda"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Tienda]" />
+                    <inputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Distrito]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Distrito"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Distrito]" />
+                    <inputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Vendedor]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Vendedor"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Vendedor]" />
+                    <inputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Articulo]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Articulo"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Articulo]" />
+                    <inputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Marca]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Marca"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Marca]" />
+                    <inputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Cantidad]"
+                      cachedDataType="r8"
+                      cachedName="Cantidad"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Cantidad]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Mes]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Mes]"
+                      name="Copy of Mes"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Mes]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Tienda]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Tienda]"
+                      name="Copy of Tienda"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Tienda]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Distrito]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Distrito]"
+                      name="Copy of Distrito"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Distrito]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Vendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Vendedor]"
+                      name="Copy of Vendedor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Vendedor]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Articulo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Articulo]"
+                      name="Copy of Articulo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Articulo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Marca]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Marca]"
+                      name="Copy of Marca"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Marca]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Cantidad]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Cantidad]"
+                      name="Copy of Cantidad"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Cantidad]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL - Ejemplo Data FLow Task\Orders"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Orders"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[orders]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL - Ejemplo Data FLow Task\Orders.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-MMSQBFD\SQLEXPRESS.dw_example2]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-MMSQBFD\SQLEXPRESS.dw_example2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].Columns[Copy of Mes]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Mes"
+                      externalMetadataColumnId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].ExternalColumns[month]"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Mes]" />
+                    <inputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].Columns[Copy of Tienda]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Tienda"
+                      externalMetadataColumnId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].ExternalColumns[store]"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Tienda]" />
+                    <inputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].Columns[Copy of Vendedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Vendedor"
+                      externalMetadataColumnId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].ExternalColumns[seller]"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Vendedor]" />
+                    <inputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].Columns[Copy of Distrito]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Distrito"
+                      externalMetadataColumnId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].ExternalColumns[district]"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Distrito]" />
+                    <inputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].Columns[Copy of Articulo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Articulo"
+                      externalMetadataColumnId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].ExternalColumns[article]"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Articulo]" />
+                    <inputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].Columns[Copy of Marca]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Marca"
+                      externalMetadataColumnId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].ExternalColumns[brand]"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Marca]" />
+                    <inputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].Columns[Copy of Cantidad]"
+                      cachedDataType="r8"
+                      cachedName="Copy of Cantidad"
+                      externalMetadataColumnId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Cantidad]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].ExternalColumns[month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="month" />
+                    <externalMetadataColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].ExternalColumns[store]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="store" />
+                    <externalMetadataColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].ExternalColumns[district]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      name="district" />
+                    <externalMetadataColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].ExternalColumns[seller]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="seller" />
+                    <externalMetadataColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].ExternalColumns[article]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="article" />
+                    <externalMetadataColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].ExternalColumns[brand]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="brand" />
+                    <externalMetadataColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      dataType="i4"
+                      name="quantity" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL - Ejemplo Data FLow Task\Orders.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL - Ejemplo Data FLow Task\Orders List"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Orders List"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Datos$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Mes]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[Mes]"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Mes]"
+                      name="Mes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Tienda]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[Tienda]"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Tienda]"
+                      name="Tienda"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Distrito]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[Distrito]"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Distrito]"
+                      name="Distrito"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Vendedor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[Vendedor]"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Vendedor]"
+                      name="Vendedor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Articulo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[Articulo]"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Articulo]"
+                      name="Articulo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Marca]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[Marca]"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Marca]"
+                      name="Marca"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Cantidad]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[Cantidad]"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[Cantidad]"
+                      name="Cantidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[F8]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[F8]"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[F8]"
+                      name="F8"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[F9]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[F9]"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[F9]"
+                      name="F9"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[F10]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[F10]"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].Columns[F10]"
+                      name="F10"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[Mes]"
+                      dataType="wstr"
+                      length="255"
+                      name="Mes" />
+                    <externalMetadataColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[Tienda]"
+                      dataType="wstr"
+                      length="255"
+                      name="Tienda" />
+                    <externalMetadataColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[Distrito]"
+                      dataType="wstr"
+                      length="255"
+                      name="Distrito" />
+                    <externalMetadataColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[Vendedor]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vendedor" />
+                    <externalMetadataColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[Articulo]"
+                      dataType="wstr"
+                      length="255"
+                      name="Articulo" />
+                    <externalMetadataColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[Marca]"
+                      dataType="wstr"
+                      length="255"
+                      name="Marca" />
+                    <externalMetadataColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[Cantidad]"
+                      dataType="r8"
+                      name="Cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[F8]"
+                      dataType="wstr"
+                      length="255"
+                      name="F8" />
+                    <externalMetadataColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[F9]"
+                      dataType="wstr"
+                      length="255"
+                      name="F9" />
+                    <externalMetadataColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output].ExternalColumns[F10]"
+                      dataType="wstr"
+                      length="255"
+                      name="F10" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[Mes]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[Mes]"
+                      name="Mes" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[Tienda]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[Tienda]"
+                      name="Tienda" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[Distrito]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[Distrito]"
+                      name="Distrito" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[Vendedor]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[Vendedor]"
+                      name="Vendedor" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[Articulo]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[Articulo]"
+                      name="Articulo" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[Marca]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[Marca]"
+                      name="Marca" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[Cantidad]"
+                      dataType="r8"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[Cantidad]"
+                      name="Cantidad" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[F8]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[F8]"
+                      name="F8" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[F9]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[F9]"
+                      name="F9" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[F10]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[F10]"
+                      name="F10" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ETL - Ejemplo Data FLow Task.Paths[Data Conversion Output]"
+              endId="Package\ETL - Ejemplo Data FLow Task\Orders.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\ETL - Ejemplo Data FLow Task.Paths[Excel Source Output]"
+              endId="Package\ETL - Ejemplo Data FLow Task\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\ETL - Ejemplo Data FLow Task\Orders List.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="222.4,41.6"
+          Id="Package\ETL - Ejemplo Data FLow Task"
+          TopLeft="81.1428585247118,67.9058833052955" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ETL - Ejemplo Data FLow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\ETL - Ejemplo Data FLow Task\Orders List"
+          TopLeft="220.000003746578,33.0352945809546" />
+        <NodeLayout
+          Size="109.6,41.6"
+          Id="Package\ETL - Ejemplo Data FLow Task\Orders"
+          TopLeft="241.551024521753,260.699163320073" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\ETL - Ejemplo Data FLow Task\Data Conversion"
+          TopLeft="217.795922076389,144.376472613061" />
+        <EdgeLayout
+          Id="Package\ETL - Ejemplo Data FLow Task.Paths[Excel Source Output]"
+          TopLeft="284.800003746578,74.6352945809546">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.5959183298116,69.7411780321062"
+              Start="0,0"
+              End="10.5959183298116,62.2411780321062">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.8705890160531" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.8705890160531"
+                    Point2="0,34.8705890160531"
+                    Point3="4,34.8705890160531" />
+                  <mssgle:LineSegment
+                    End="6.59591832981164,34.8705890160531" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.59591832981164,34.8705890160531"
+                    Point2="10.5959183298116,34.8705890160531"
+                    Point3="10.5959183298116,38.8705890160531" />
+                  <mssgle:LineSegment
+                    End="10.5959183298116,62.2411780321062" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL - Ejemplo Data FLow Task.Paths[Data Conversion Output]"
+          TopLeft="295.873473299071,185.976472613061">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,74.7226907070121"
+              Start="0,0"
+              End="0,67.2226907070121">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.2226907070121" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL - Ejemplo Data FLow Task\Orders List">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL - Ejemplo Data FLow Task\Orders">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
